@@ -1,0 +1,8 @@
+
+    [deluge.plugin.core]
+    AutoLabelling = deluge.plugins.autolabelling:CorePlugin
+    [deluge.plugin.gtkui]
+    AutoLabelling = deluge.plugins.autolabelling:GtkUIPlugin
+    [deluge.plugin.web]
+    AutoLabelling = deluge.plugins.autolabelling:WebUIPlugin
+    
