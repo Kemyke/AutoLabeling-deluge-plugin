@@ -1,0 +1,17 @@
+setup.py
+AutoLabeling.egg-info/PKG-INFO
+AutoLabeling.egg-info/PKG-INFO~
+AutoLabeling.egg-info/SOURCES.txt
+AutoLabeling.egg-info/SOURCES.txt~
+AutoLabeling.egg-info/dependency_links.txt
+AutoLabeling.egg-info/entry_points.txt
+AutoLabeling.egg-info/entry_points.txt~
+AutoLabeling.egg-info/namespace_packages.txt
+AutoLabeling.egg-info/top_level.txt
+deluge/__init__.py
+deluge/plugins/__init__.py
+deluge/plugins/autolabeling/__init__.py
+deluge/plugins/autolabeling/common.py
+deluge/plugins/autolabeling/core.py
+deluge/plugins/autolabeling/gtkui.py
+deluge/plugins/autolabeling/webui.py

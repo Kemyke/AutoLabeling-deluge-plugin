@@ -1,2 +1,2 @@
-AutoLabelling-deluge-plugin
+AutoLabeling-deluge-plugin
 ===========================

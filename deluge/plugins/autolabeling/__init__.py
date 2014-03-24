@@ -1,5 +1,5 @@
 #
-# setup.py
+# __init__.py
 #
 # Copyright (C) 2014 Kemy <kemyyy@gmail.com>
 #
@@ -38,38 +38,22 @@
 #    statement from all source files in the program, then also delete it here.
 #
 
-from setuptools import setup, find_packages
+from deluge.plugins.init import PluginInitBase
 
-__plugin_name__ = "AutoLabeling"
-__author__ = "Kemy"
-__author_email__ = "kemyyy@gmail.com"
-__version__ = "0.1"
-__url__ = ""
-__license__ = "GPLv3"
-__description__ = ""
-__long_description__ = """"""
-__pkg_data__ = {"deluge.plugins."+__plugin_name__.lower(): ["template/*", "data/*"]}
+class CorePlugin(PluginInitBase):
+    def __init__(self, plugin_name):
+        from core import Core as _plugin_cls
+        self._plugin_cls = _plugin_cls
+        super(CorePlugin, self).__init__(plugin_name)
 
-setup(
-    name=__plugin_name__,
-    version=__version__,
-    description=__description__,
-    author=__author__,
-    author_email=__author_email__,
-    url=__url__,
-    license=__license__,
-    long_description=__long_description__ if __long_description__ else __description__,
+class GtkUIPlugin(PluginInitBase):
+    def __init__(self, plugin_name):
+        from gtkui import GtkUI as _plugin_cls
+        self._plugin_cls = _plugin_cls
+        super(GtkUIPlugin, self).__init__(plugin_name)
 
-    packages=find_packages(),
-    namespace_packages = ["deluge", "deluge.plugins"],
-    package_data = __pkg_data__,
-
-    entry_points="""
-    [deluge.plugin.core]
-    %(plugin_name)s = deluge.plugins.%(plugin_module)s:CorePlugin
-    [deluge.plugin.gtkui]
-    %(plugin_name)s = deluge.plugins.%(plugin_module)s:GtkUIPlugin
-    [deluge.plugin.web]
-    %(plugin_name)s = deluge.plugins.%(plugin_module)s:WebUIPlugin
-    """ % dict(plugin_name=__plugin_name__, plugin_module=__plugin_name__.lower())
-)
+class WebUIPlugin(PluginInitBase):
+    def __init__(self, plugin_name):
+        from webui import WebUI as _plugin_cls
+        self._plugin_cls = _plugin_cls
+        super(WebUIPlugin, self).__init__(plugin_name)
