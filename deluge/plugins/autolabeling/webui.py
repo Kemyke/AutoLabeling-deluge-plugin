@@ -50,9 +50,4 @@ log = logging.getLogger(__name__)
 class WebUI(WebPluginBase):
 
     scripts = [get_resource("autolabeling.js")]
-
-    def enable(self):
-        pass
-
-    def disable(self):
-        pass
+    debug_scripts = scripts

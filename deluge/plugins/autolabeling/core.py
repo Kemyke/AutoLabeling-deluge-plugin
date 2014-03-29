@@ -100,6 +100,10 @@ class Core(CorePluginBase):
         pass	
 
     @export
+    def get_rules(self):
+	return self.config["label_regex_list"]
+
+    @export
     def add(self, rule={}):
 	self.label_regex_list.append(dict(rule))
 
