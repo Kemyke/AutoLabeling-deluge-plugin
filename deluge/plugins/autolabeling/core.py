@@ -67,11 +67,12 @@ class Core(CorePluginBase):
 		files = torrent.get_files()
 		for file in files:
 			for rule_dict in self.label_regex_list: 
-				c = re.compile(self.rule_dict["regex"])
-				m = c.search(file['path'])
-				if(m != None):
-					print "Found!"
-					self.label_plugin.plugin.set_torrent(torrent_id,label_id)
+				if(rule_dict["enabled"]):
+					c = re.compile(rule_dict["regex"])
+					m = c.search(file['path'])
+					if(m != None):
+						print "Found!"
+						self.label_plugin.plugin.set_torrent(torrent_id,rule_dict["label_id"])
 
     def handlePluginEnabled(self, plugin):
 	print "Plugin enabled: "+plugin
